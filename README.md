@@ -7,7 +7,7 @@ In resume, this project was splited into this parts:
   - Data Source: REST API (Rapid API)
   - Tools: Python, Cloud Functions, Cloud Scheduler, Cloud Storage, BigQuery
 
-![image](https://user-images.githubusercontent.com/69798348/115745736-1939a080-a36a-11eb-81f1-cbc88bcb3789.png)
+![image](![arquitetura_projeto](https://user-images.githubusercontent.com/69798348/183543146-0146762d-f13e-4b7e-8ef7-67abba06900d.PNG)) 
 
 # Documentation
 
