@@ -15,13 +15,13 @@ In resume, this project was splited into this parts:
 This API bring the climate info about some region passed in the parameters. For example, if you pass "London", then you receive London Climate info, as Temp, Wind direction, kpm wind, sky condition, etc. The API refresh this info every 15 minutes, thus you have 4 registers per hour about the region you want.
 
 # get_data.py:
-Runs each 15 minutes. Just collect the data from the API, store at google cloud storage as a parquet file and insert it into a bigquery table.
+Runs every 15 minutes. Just collect the data from the API, store at google cloud storage as a parquet file and insert it into a bigquery table.
 
 # model_pipeline.py:
 Run once per day. Runs a pipeline that train a random forest algorithm (best evaluated model based on AUC with CV), witch best parameters were already choosed and store it at cloud storage as a pickle file.
 
 # gen_predictions.py:
-Runs each 15 minutes. Take the last model trained, the last data collected, generate predictions and save those predictions as a parquet file on cloud storage.
+Runs every 15 minutes. Take the last model trained, the last data collected, generate predictions and save those predictions as a parquet file on cloud storage.
 
 # Simple dashboard about the data colleted:
 
