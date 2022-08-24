@@ -1,0 +1,5 @@
+flask
+flask-restful
+google-cloud-bigquery
+pandas
+db-dtypes
