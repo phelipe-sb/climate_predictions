@@ -23,6 +23,12 @@ Run once per day. Runs a pipeline that train a random forest algorithm (best eva
 # gen_predictions.py:
 Runs every 15 minutes. Take the last model trained, the last data collected, generate predictions and save those predictions as a parquet file on cloud storage.
 
+# api_predictions.py:
+Endpoint with predictions results with climate condiction in the next hour that updates every 15 minutes.
+Endpoint: https://api-predictions-ujarjpjbzq-uc.a.run.app/predictions
+Type: Get
+Authentication: No
+
 # Simple dashboard about the data colleted:
 
 Dashboard link - https://datastudio.google.com/s/p268nZ5P8DM (Ps: This dash has a default date filter, it always bring the last 14 days. It can be changed by clicking on filter box)
