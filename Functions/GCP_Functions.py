@@ -11,7 +11,7 @@ import pickle
 try:
     bq_client = bigquery.Client()
 except:
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Phelipe\Downloads\Weather Project-6fa8e059f642.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Phelipe\Downloads\weather-project-305419-fc9b2230cc12.json"
     bq_client = bigquery.Client()
 
 storage_client = storage.Client(project=bq_client.project)
@@ -109,3 +109,7 @@ def send_file_to_gcs(bucket_name, obj, destination_blob_name, storage_client=sto
   else:
       blob.upload_from_string(obj)
   return print('parquet save on gcs.')
+
+def send_df_to_gcs(bucket_name, df, destiny_path, storage_client=storage_client):
+    df.to_parquet(f'gs://{bucket_name}/{destiny_path}')
+    print('df saved in gcs.')

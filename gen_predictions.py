@@ -17,7 +17,7 @@ def predictions(request=None):
                     , 'pressure_mb', 'precip_mm', 'humidity', 'cloud', 'feelslike_c', 'vis_km', 'uv'
                     , 'gust_kph', 'target']]
 
-    model_pipe = read_storage_files('weather-ml-bucket', 'model/v1/Rain_Model_Object')
+    model_pipe = read_storage_files('weather-ml-bucket', file_path=find_last_bucket_file(bucket_name='weather-ml-bucket'))
 
     df[['rain_prob', 'not_rain_prob']] = model_pipe.predict_proba(df)
 
