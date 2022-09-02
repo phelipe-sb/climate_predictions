@@ -23,14 +23,22 @@ def tag_target(df, raining_list):
 
 # function to convert columns to float
 def to_float(df):
-    float_list = list()
-    for column_name in df.drop(columns='target').columns:
-        if str(df[f'{column_name}'][0]).replace(".", "").replace("-", "").isnumeric() == True:
-            float_list.append(column_name)
 
-    for column in df.columns:
-        if column in float_list:
-            df[f'{column}'] = df[f'{column}'].astype("float")
+    float_columns = ['last_updated_epoch', 'temp_c', 'temp_f', 'is_day', 'wind_mph', 'wind_kph', 'wind_degree', 'pressure_mb', 'pressure_in',
+                'precip_mm', 'precip_in', 'humidity', 'cloud', 'feelslike_c', 'feelslike_f', 'vis_km', 'vis_miles', 'uv', 'gust_mph', 'gust_kph', 'row_num']
+    
+    for column in float_columns:
+        df[f'{column}'] = df[f'{column}'].astype('float64')
+    # float_list = list()
+    # for column_name in df.drop(columns='target').columns:
+    #     if str(df[f'{column_name}'][0]).replace(".", "").replace("-", "").isnumeric() == True:
+    #         float_list.append(column_name)
+
+    # for column in df.columns:
+    #     if column in float_list:
+    #         df[f'{column}'] = df[f'{column}'].astype("float")
+
+    # print(df.dtypes)
     return df
 
 def algorithm_columns(df, columns):

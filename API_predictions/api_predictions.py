@@ -23,7 +23,7 @@ def get_predictions():
     obj = blob.download_as_string()
     df = pd.read_parquet(f"gs://{'weather_prediction_files'}/{last_file_name}")
 
-    return df.to_dict(), 200
+    return df.to_json(), 200
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), use_reloader=False)
